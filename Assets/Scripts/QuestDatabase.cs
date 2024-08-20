@@ -18,6 +18,7 @@ public class QuestProgress
     public bool hasClaimed;
 }
 
+[Serializable]
 public class QuestProgressDatabase
 {
     public List<QuestProgress> questProgresses;

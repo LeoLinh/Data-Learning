@@ -21,6 +21,10 @@ public class DailyQuestItemHandler : MonoBehaviour
         this.QuestProgress = questProgress;  
     }
 
+    public void Update()
+    {
+        UpdateProgress();
+    }
     public void UpdatedUi()
     {
         Debug.Log("UpdateUI");
@@ -28,6 +32,11 @@ public class DailyQuestItemHandler : MonoBehaviour
         rewardIcon.sprite = dailyQuestData.reward;
         rewardQuantityText.text = dailyQuestData.rewardQuality.ToString();
 
+        UpdateProgress();
+    }
+
+    public void UpdateProgress()
+    {
         currentProgressText.text = $"{QuestProgress.progress}";
         totalProgressText.text = $"/{dailyQuestData.taskCount}";
     }
