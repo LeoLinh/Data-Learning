@@ -20,12 +20,15 @@ public class DailyQuestManager : MonoBehaviour
         }
     }
 
+    [ContextMenu("LoadQuestProgress")]
     private void LoadQuestProgress()
     {
         var defaultQuestProgressDatabaseString = JsonUtility.ToJson(QuestProgressDatabase);
         var questProgressDatabaseValue = PlayerPrefs.GetString(nameof(QuestProgressDatabase), defaultQuestProgressDatabaseString);
 
         QuestProgressDatabase = JsonUtility.FromJson<QuestProgressDatabase>(questProgressDatabaseValue);
+
+        Debug.Log("Loaded progress: " + JsonUtility.ToJson(QuestProgressDatabase));
     }
 
     private void CreatQuest(DailyQuestData questData, QuestProgress questProgress)
@@ -38,6 +41,7 @@ public class DailyQuestManager : MonoBehaviour
     private void SaveProgress()
     {
         var questProgressDataBaseString = JsonUtility.ToJson(QuestProgressDatabase);
+        Debug.Log("Saving progress: " + questProgressDataBaseString);
         PlayerPrefs.SetString(nameof(QuestProgressDatabase), questProgressDataBaseString);
         PlayerPrefs.Save();
     }
