@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class DailyQuestItemHandler : MonoBehaviour
@@ -30,7 +28,6 @@ public class DailyQuestItemHandler : MonoBehaviour
         this.dailyQuestData = dailyQuestData;
         this.QuestProgress = questProgress;
     }
-
     [ContextMenu("Update UI")]
     public void UpdatedUi()
     {
