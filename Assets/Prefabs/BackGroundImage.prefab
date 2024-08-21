@@ -534,8 +534,8 @@ MonoBehaviour:
     reward: {fileID: 0}
     rewardQuality: 0
   QuestProgress:
-    id: 0
-    progress: 0
+    id: 1
+    progress: 1
     hasClaimed: 0
   descriotionText: {fileID: 9016616034495393984}
   rewardIcon: {fileID: 6650124612043903571}
