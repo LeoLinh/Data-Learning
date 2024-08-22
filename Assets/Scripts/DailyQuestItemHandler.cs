@@ -27,7 +27,9 @@ public class DailyQuestItemHandler : MonoBehaviour
         Debug.Log("SetData");
         this.dailyQuestData = dailyQuestData;
         this.QuestProgress = questProgress;
+        UpdatedUi();
     }
+
     [ContextMenu("Update UI")]
     public void UpdatedUi()
     {
@@ -52,7 +54,7 @@ public class DailyQuestItemHandler : MonoBehaviour
             Debug.LogError("QuestProgress is null in UpdateProgress!");
             return; // Ngừng lại nếu dữ liệu chưa được gán
         }
-
+        
         currentProgressText.text = $"{QuestProgress.progress}";
         totalProgressText.text = $"/{dailyQuestData.taskCount}";
     }

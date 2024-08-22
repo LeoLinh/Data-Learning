@@ -16,6 +16,8 @@ public class QuestProgress
     public int id;
     public int progress;
     public bool hasClaimed;
+    private bool v;
+
 }
 
 [Serializable]

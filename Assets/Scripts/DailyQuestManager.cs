@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class DailyQuestManager : MonoBehaviour
@@ -9,7 +10,7 @@ public class DailyQuestManager : MonoBehaviour
     public Transform rootUicontent;
     public QuestProgressDatabase QuestProgressDatabase;
 
-    private void Start()
+    private void Awake()
     {
         LoadQuestProgress();
 
@@ -38,7 +39,7 @@ public class DailyQuestManager : MonoBehaviour
     }
 
     [ContextMenu("Save Data")]
-    private void SaveProgress()
+    public void SaveProgress()
     {
         var questProgressDataBaseString = JsonUtility.ToJson(QuestProgressDatabase);
         Debug.Log("Saving progress: " + questProgressDataBaseString);
@@ -48,6 +49,13 @@ public class DailyQuestManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         SaveProgress();
+    }
+
+    public void UpdateQuestprogress(QuestProgress questProgress)
+    {
+        QuestProgress quest = QuestProgressDatabase.questProgresses.Find(progress => questProgress.id == progress.id);
+        quest.progress = questProgress.progress;
+        quest.hasClaimed = questProgress.hasClaimed;
     }
 }
 
