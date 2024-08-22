@@ -33,17 +33,6 @@ public class TestPanelController : MonoBehaviour
             }
         }
 
-
-        //var questProgress = new QuestProgress
-        //{
-        //    id = id,
-        //    progress = progress,
-        //    hasClaimed = false
-        //};
-
-        // Cập nhật quest progress trong manager
-        //questManager.UpdateQuestprogress(questProgress);
-
         // Lưu lại sau khi cập nhật
         questManager.SaveProgress();
         PlayerPrefs.SetInt("QuestProgress_" + id, progress);
